@@ -6,20 +6,22 @@ import ProductService from '../services/productService'
 export default function ProductDetail() {
     let { name } = useParams()
 
-    const [product, setProduct] = useState({})
+    const [product, setProduct] = useState([])
     //lifecycle hooks
 
     useEffect(() => {
         let productService = new ProductService();
-        productService.getByProductName(name).then(result => setProduct(result.data.data));
+        productService.getByProductName(name).then(result => setProduct([result.data.data]));
 
     },[])
     
 
     return (
         <div>
-        
-            <Card.Group>
+        {
+            product.map(abc =>(
+
+                <Card.Group>
                 <Card fluid="strong">
                     <Card.Content>
                         <Image
@@ -27,8 +29,8 @@ export default function ProductDetail() {
                             size='mini'
                             src='https://react.semantic-ui.com/images/avatar/large/steve.jpg'
                         />
-                        <Card.Header>    {product.productName}</Card.Header>
-                        <Card.Meta>{product.quantityPerUnit}</Card.Meta>
+                        <Card.Header>    {abc.productName}</Card.Header>
+                        <Card.Meta>{abc.category.categoryName}</Card.Meta>
                         <Card.Description>
                             Steve wants to add you to the group <strong>best friends</strong>
                         </Card.Description>
@@ -45,6 +47,8 @@ export default function ProductDetail() {
                     </Card.Content>
                 </Card>
             </Card.Group>
+            ))
+        }
 
         </div>
     )
