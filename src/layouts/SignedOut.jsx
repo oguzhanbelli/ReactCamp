@@ -7,7 +7,7 @@ export default function SignedOut({signIn}) {
             <Menu.Item>
 
            
-            <Button primary onClick={signIn}>Giriş Yap</Button>
+            <Button primary icon="info" onClick={signIn}>Giriş Yap</Button>
             <Button primary style={{marginLeft:10}}>Kayıt Ol</Button>
             </Menu.Item>
         </div>
