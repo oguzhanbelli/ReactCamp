@@ -26,7 +26,7 @@ function handleSignIn(params) {
             <Menu inverted fixed="top" size='tiny' >
             <Container>
                 <Menu.Item
-                    name='home'
+                   
              
                  
                 />
